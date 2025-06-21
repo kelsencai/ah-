@@ -41,6 +41,22 @@ body {
     font-size: 1.2rem;
     opacity: 0.9;
     font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.alert-line {
+    display: inline-block;
+    background: rgba(255, 71, 87, 0.2);
+    border: 2px solid #ff4757;
+    border-radius: 25px;
+    padding: 8px 20px;
+    backdrop-filter: blur(10px);
+}
+
+.alert-text {
+    font-weight: 600;
+    color: #ff4757;
+    font-size: 1rem;
 }
 
 /* 主要内容区域 */
@@ -52,10 +68,9 @@ body {
 }
 
 /* 卡片通用样式 */
-.premium-card,
-.alert-card,
 .data-source-card,
-.chart-card {
+.info-card,
+.quick-access-card {
     background: white;
     border-radius: 20px;
     padding: 30px;
@@ -65,104 +80,85 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.premium-card:hover,
-.alert-card:hover,
 .data-source-card:hover,
-.chart-card:hover {
+.info-card:hover,
+.quick-access-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-/* 溢价指数卡片 */
-.premium-card {
-    text-align: center;
+/* 主要数据来源卡片 */
+.data-source-card.primary {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
+    text-align: center;
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.card-header h2 {
-    font-size: 1.5rem;
+.source-header h2 {
+    font-size: 1.8rem;
     font-weight: 600;
-}
-
-.update-time {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.premium-value {
-    margin: 40px 0;
-}
-
-.premium-value .value {
-    font-size: 4rem;
-    font-weight: 700;
-    display: block;
     margin-bottom: 10px;
 }
 
-.premium-value .unit {
-    font-size: 2rem;
-    font-weight: 500;
-    opacity: 0.8;
+.source-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
 }
 
-.status-indicator {
+/* 主要链接样式 */
+.main-link-container {
     margin-top: 20px;
 }
 
-.status-text {
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: 500;
-    background: rgba(255,255,255,0.2);
+.main-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255,255,255,0.15);
+    border-radius: 15px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255,255,255,0.3);
     backdrop-filter: blur(10px);
 }
 
-/* 警戒线提醒卡片 */
-.alert-card {
-    display: none; /* 默认隐藏，通过JavaScript控制显示 */
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-    color: white;
-    border: 2px solid #ff4757;
+.main-link:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.alert-card.show {
+.link-content {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
-    animation: slideIn 0.5s ease;
 }
 
-.alert-icon {
+.link-icon {
     font-size: 3rem;
     flex-shrink: 0;
 }
 
-.alert-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
+.link-text h3 {
+    font-size: 1.4rem;
     font-weight: 600;
-}
-
-.alert-content p {
     margin-bottom: 5px;
+}
+
+.link-text p {
     font-size: 1rem;
-}
-
-.alert-detail {
     opacity: 0.8;
-    font-size: 0.9rem;
 }
 
-/* 数据来源卡片 */
+.link-arrow {
+    font-size: 2rem;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+/* 其他数据来源 */
 .data-source-card h3 {
     font-size: 1.3rem;
     margin-bottom: 20px;
@@ -200,33 +196,100 @@ body {
     font-size: 1.5rem;
 }
 
-/* 图表卡片 */
-.chart-card h3 {
+/* 说明信息卡片 */
+.info-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 600;
+}
+
+.info-content {
+    display: grid;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+}
+
+.info-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.info-text h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.info-text p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* 快速访问卡片 */
+.quick-access-card h3 {
     font-size: 1.3rem;
     margin-bottom: 20px;
     color: #333;
     font-weight: 600;
 }
 
-.chart-container {
-    min-height: 300px;
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.quick-link {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
+    padding: 20px;
     background: #f8f9fa;
     border-radius: 12px;
-    border: 2px dashed #dee2e6;
-}
-
-.chart-placeholder {
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
     text-align: center;
-    color: #6c757d;
 }
 
-.chart-icon {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 15px;
+.quick-link:hover {
+    background: #e9ecef;
+    border-color: #667eea;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.quick-link.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.quick-link.primary:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+.quick-icon {
+    font-size: 2rem;
+}
+
+.quick-link span:last-child {
+    font-weight: 500;
+    font-size: 0.95rem;
 }
 
 /* 页脚样式 */
@@ -239,6 +302,16 @@ body {
 
 .footer p {
     margin-bottom: 5px;
+}
+
+.footer a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }
 
 .disclaimer {
@@ -267,10 +340,6 @@ body {
     }
 }
 
-.premium-value.alert {
-    animation: pulse 2s infinite;
-}
-
 /* 响应式设计 */
 @media (max-width: 768px) {
     .container {
@@ -285,34 +354,39 @@ body {
         font-size: 1rem;
     }
     
-    .premium-card,
-    .alert-card,
     .data-source-card,
-    .chart-card {
+    .info-card,
+    .quick-access-card {
         padding: 20px;
     }
     
-    .premium-value .value {
-        font-size: 3rem;
-    }
-    
-    .premium-value .unit {
+    .source-header h2 {
         font-size: 1.5rem;
     }
     
-    .card-header {
+    .link-content {
         flex-direction: column;
-        gap: 10px;
         text-align: center;
+        gap: 15px;
     }
     
-    .source-links {
+    .link-icon {
+        font-size: 2.5rem;
+    }
+    
+    .link-arrow {
+        display: none;
+    }
+    
+    .source-links,
+    .quick-links {
         grid-template-columns: 1fr;
     }
     
-    .alert-card.show {
+    .info-item {
         flex-direction: column;
         text-align: center;
+        gap: 10px;
     }
 }
 
@@ -321,30 +395,17 @@ body {
         font-size: 1.8rem;
     }
     
-    .premium-value .value {
-        font-size: 2.5rem;
-    }
-    
-    .premium-card,
-    .alert-card,
     .data-source-card,
-    .chart-card {
+    .info-card,
+    .quick-access-card {
         padding: 15px;
     }
-}
-
-/* 状态颜色 */
-.status-normal {
-    background: rgba(46, 213, 115, 0.2) !important;
-    color: #2ed573;
-}
-
-.status-warning {
-    background: rgba(255, 165, 2, 0.2) !important;
-    color: #ffa502;
-}
-
-.status-danger {
-    background: rgba(255, 71, 87, 0.2) !important;
-    color: #ff4757;
+    
+    .main-link {
+        padding: 20px;
+    }
+    
+    .link-text h3 {
+        font-size: 1.2rem;
+    }
 } 
